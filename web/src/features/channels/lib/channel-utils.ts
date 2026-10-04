@@ -54,6 +54,8 @@ export function getChannelTypeIcon(type: number): string {
     58: 'NewAPI', // Advanced Custom
     59: 'Sub2API', // Sub2API
     60: 'NewAPI', // New API
+    62: 'Vllm', // vLLM
+    63: 'SGLang', // SGLang
     3: 'Azure', // Azure
 
     // Anthropic
@@ -78,7 +80,7 @@ export function getChannelTypeIcon(type: number): string {
     23: 'Hunyuan', // Tencent
     19: 'Ai360', // 360
     25: 'Moonshot', // Moonshot
-    61: 'Baichuan', // Baichuan
+    64: 'Baichuan', // Baichuan
     31: 'Yi', // LingYiWanWu
     35: 'Minimax', // MiniMax
     45: 'Volcengine', // VolcEngine
@@ -103,7 +105,7 @@ export function getChannelTypeIcon(type: number): string {
     52: 'Vidu', // Vidu
     36: 'Suno', // SunoAPI
     55: 'OpenAI', // Sora
-    54: 'Doubao', // DoubaoVideo
+    54: 'Doubao', // Doubao
     56: 'Replicate', // Replicate
 
     // Tools & Platforms
