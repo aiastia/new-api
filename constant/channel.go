@@ -61,7 +61,10 @@ const (
 	ChannelTypeTaskPlugin     = 61
 	ChannelTypeVLLM           = 62
 	ChannelTypeSGLang         = 63
-	ChannelTypeBaichuan       = 64
+	// fork-local channel type: numbers start at 100 to stay clear of upstream
+	// additions (64-99 reserved for upstream); keep inside this block so
+	// ChannelTypeDummy stays above every real type.
+	ChannelTypeBaichuan       = 100
 	ChannelTypeDummy          // this one is only for count, do not add any channel after this
 
 )
@@ -133,10 +136,14 @@ var ChannelBaseURLs = []string{
 	"",                                          //61
 	"",                                          //62
 	"",                                          //63
-	"https://api.baichuan-ai.com",               //64
 }
 
 func GetChannelBaseURL(channelType int) string {
+	// fork-local channel types are resolved here instead of appending to
+	// ChannelBaseURLs, so the array stays identical to upstream.
+	if channelType == ChannelTypeBaichuan {
+		return "https://api.baichuan-ai.com"
+	}
 	if channelType < 0 || channelType >= len(ChannelBaseURLs) {
 		return ""
 	}
